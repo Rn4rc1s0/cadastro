@@ -1,9 +1,11 @@
 package com.narciso.cadastropessoa.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @EqualsAndHashCode(callSuper = false)
 @Getter
@@ -18,5 +20,6 @@ public class Pessoa implements Serializable {
     private Long id;
     private String nmPessoa;
     private String nrCpf;
-    private LocalDate dtNascimento;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Date dtNascimento;
 }

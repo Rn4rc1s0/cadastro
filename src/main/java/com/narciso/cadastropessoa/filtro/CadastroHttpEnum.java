@@ -35,7 +35,7 @@ public enum CadastroHttpEnum {
 		}
 
 		throw new IllegalArgumentException(
-				StringUtils.getMensagemPadrao("exception.enum.codigoInvalido", status.value()));
+				StringUtils.getMensagemPadrao("Código Invalido", status.value()));
 	}
 
 	public HttpStatus getStatus() {

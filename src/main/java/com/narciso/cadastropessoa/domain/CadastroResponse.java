@@ -70,7 +70,7 @@ public class CadastroResponse<T> {
 
 	@Override
 	public String toString() {
-		return String.format("UltronResponse [timeStamp=%s, nrStatus=%s, dados=%s, nmSiglaProjeto=%s, txMensagem=%s]",
+		return String.format("CadastroResponse [timeStamp=%s, nrStatus=%s, dados=%s, nmSiglaProjeto=%s, txMensagem=%s]",
 				timestamp, nrStatus, dados, nmSiglaProjeto, txMensagem);
 	}
 }

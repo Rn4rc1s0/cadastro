@@ -3,11 +3,9 @@ package com.narciso.cadastropessoa.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-
 import java.io.Serializable;
 
 @EqualsAndHashCode(callSuper = false)
@@ -20,6 +18,7 @@ import java.io.Serializable;
 public class Contato implements Serializable {
     private static final long serialVersionUID = -6040071027848985474L;
 
+    @JsonIgnore
     private Long id;
     @JsonIgnore
     private Long idPessoa;

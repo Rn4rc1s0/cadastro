@@ -24,9 +24,9 @@ spring:
   jpa:
     show-sql: true
   datasource:
-    url:  jdbc:sqlserver://SISAB051H:50956;instanceName=ULTROND;databaseName=produto
-    username: usr_app_produto
-    password: u5r_@pp_pr0duTo
+    url:  jdbc:sqlserver://127.0.0.1\narcisoserver01:1433;instanceName=narcisoserver01;databaseName=cadastro
+    username: sqlserver
+    password: narciso2021
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
     type: com.zaxxer.hikari.HikariDataSource
     hikari:

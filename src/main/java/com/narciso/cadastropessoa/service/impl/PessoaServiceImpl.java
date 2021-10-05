@@ -27,6 +27,7 @@ public class PessoaServiceImpl implements PessoaService {
         Pessoa pessoa = pessoaForm.converter();
         Validacoes.validaCPF(pessoa.getNrCpf());
         PessoaDto pessoaDto = pessoaRepository.salvar(pessoa);
+        pessoaForm.getLsContato().forEach(contato -> contato.setIdPessoa(pessoaDto.getId()));
         pessoaDto.setLsContato(contatoRepository.salvarTodos(pessoaForm.getLsContato()));
         return pessoaDto;
     }
@@ -36,7 +37,9 @@ public class PessoaServiceImpl implements PessoaService {
         Pessoa pessoa = pessoaForm.converter();
         Validacoes.validaCPF(pessoa.getNrCpf());
         PessoaDto pessoaDto = pessoaRepository.alterar(pessoa);
-        pessoaDto.setLsContato(contatoRepository.alterarTodos(pessoaForm.getLsContato()));
+        contatoRepository.deletarPorIdPessoa(pessoaDto.getId());
+        pessoaForm.getLsContato().forEach(contato -> contato.setIdPessoa(pessoaDto.getId()));
+        pessoaDto.setLsContato(contatoRepository.salvarTodos(pessoaForm.getLsContato()));
         return pessoaDto;
     }
 

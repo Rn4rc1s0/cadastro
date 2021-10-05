@@ -1,12 +1,13 @@
 package com.narciso.cadastropessoa.form;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.narciso.cadastropessoa.domain.Contato;
 import com.narciso.cadastropessoa.domain.Pessoa;
 import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @ToString
@@ -23,7 +24,8 @@ public class PessoaForm {
     @NotBlank(message="Campo de preenchimento obrigatório.")
     private String nrCpf;
     @NotNull(message="Campo de preenchimento obrigatório.")
-    private LocalDate dtNascimento;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
+    private Date dtNascimento;
     private List<Contato> lsContato;
 
     public Pessoa converter() {

@@ -42,15 +42,9 @@ public class StringUtils {
 		return recuperarTexto(bundle, chaveMensagem, params);
 	}
 
-	/**
-	 * Recupera os textos presentes no arquivo ultron-messages.properties
-	 *
-	 * @param chaveMensagem
-	 * @param params
-	 * @return
-	 */
+
 	public static String getMensagemPadrao(final String chaveMensagem, final Object... params) {
-		final ResourceBundle bundle = getBundle("ultron-messages", getDefault());
+		final ResourceBundle bundle = getBundle("cadastro-messages", getDefault());
 
 		return recuperarTexto(bundle, chaveMensagem, params);
 	}
