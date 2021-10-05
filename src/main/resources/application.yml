@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: '@project.artifactId@'
+  profiles:
+    active: local
+  main:
+    allow-bean-definition-overriding: true

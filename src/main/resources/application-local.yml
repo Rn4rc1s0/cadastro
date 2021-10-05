@@ -1,0 +1,37 @@
+server:
+  port: 8088
+
+####################
+## LOG DO SISTEMA ##
+####################
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        servlet:
+          DispatcherServlet: INFO
+        web: INFO
+    br:
+      com:
+        brasilseg:
+          ultron: INFO
+
+####################
+#### SQL SERVER ####
+####################
+spring:
+  jpa:
+    show-sql: true
+  datasource:
+    url:  jdbc:sqlserver://SISAB051H:50956;instanceName=ULTROND;databaseName=produto
+    username: usr_app_produto
+    password: u5r_@pp_pr0duTo
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 12
+      idle-timeout: 300000
+      max-lifetime: 1200000
+      auto-commit: true
