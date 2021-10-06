@@ -3,15 +3,25 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+/target/
+/.idea
+/cadastroPessoa.iml
+/.java-version
 ### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
+/.apt_generated
+/.springBeans
+/.sts4-cache
+/.classpath
+/.settings
+/.factorypath
+/.project
+/bin
+/.attach_pid
+/.sonar-project
+/.scannerwork
+/report-task
+/.metadata/
+/..profile.swp
 
 ### IntelliJ IDEA ###
 .idea
