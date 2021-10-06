@@ -33,6 +33,9 @@ public class ContatoRepositoryImpl implements ContatoRepository {
     @Value("${SPS.CONTATO.WHERE.ID_PESSOA}")
     private String queryBuscarPorIdPessoa;
 
+    @Value("${SPS.CONTATO.WHERE.LS_IDS}")
+    private String queryBuscarPorLsIdsPessoa;
+
     @Value("${SPI.CONTATO.SALVAR}")
     private String querySalvar;
 
@@ -45,6 +48,13 @@ public class ContatoRepositoryImpl implements ContatoRepository {
     @Override
     public List<Contato> buscarLsContatoPorIdPessoa(Long idPessoa) {
         return jdbcTemplate.query(queryBuscarPorIdPessoa, BeanPropertyRowMapper.newInstance(Contato.class), idPessoa);
+    }
+
+    @Override
+    public List<Contato> buscarLsContatoPorLsIdsPessoa(List<Long> lsIds) {
+        MapSqlParameterSource params = new MapSqlParameterSource("lsIds", lsIds);
+        return namedParameterJdbcTemplate.query(queryBuscarPorLsIdsPessoa, params,
+                BeanPropertyRowMapper.newInstance(Contato.class));
     }
 
     @Override

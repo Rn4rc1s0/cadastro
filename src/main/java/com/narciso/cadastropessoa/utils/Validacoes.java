@@ -1,5 +1,9 @@
 package com.narciso.cadastropessoa.utils;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 public class Validacoes {
     private static final int[] pesoCPF = {11, 10, 9, 8, 7, 6, 5, 4, 3, 2};
 
@@ -31,5 +35,11 @@ public class Validacoes {
         Integer digito2 = calcularDigito(nrCpf.substring(0,9) + digito1, pesoCPF);
         if(!nrCpf.equals(nrCpf.substring(0,9) + digito1 + digito2))
             throw new RuntimeException(StringUtils.getMensagem("CPF Invállido"));
+    }
+
+    public static void validaData(Date dtNascimento) {
+        if(dtNascimento.after(Date.from(Instant.now()))) {
+            throw new RuntimeException(StringUtils.getMensagem("Data de Nascimento Inválida"));
+        }
     }
 }

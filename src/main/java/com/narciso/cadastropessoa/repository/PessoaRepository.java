@@ -11,5 +11,5 @@ public interface PessoaRepository {
     PessoaDto alterar(Pessoa Pessoa);
     void deletar(Long id);
     PessoaDto buscarPorId(Long id);
-    Page<Pessoa> listar(String query, String filtro, Pageable pageable);
+    Page<PessoaDto> listar(String query, String filtro, Pageable pageable);
 }

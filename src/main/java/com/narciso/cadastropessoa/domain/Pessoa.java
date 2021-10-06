@@ -6,6 +6,7 @@ import lombok.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = false)
 @Getter
@@ -22,4 +23,5 @@ public class Pessoa implements Serializable {
     private String nrCpf;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date dtNascimento;
+    private List<Contato> lsContato;
 }

@@ -79,7 +79,7 @@ public class PessoaRepositoryImpl implements PessoaRepository {
     }
 
     @Override
-    public Page<Pessoa> listar(String query, String filtro, Pageable pageable) {
+    public Page<PessoaDto> listar(String query, String filtro, Pageable pageable) {
             MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
             if (Objects.nonNull(filtro) && !"".equals(filtro)) {
                 mapSqlParameterSource.addValue("filtro", filtro);
@@ -87,14 +87,14 @@ public class PessoaRepositoryImpl implements PessoaRepository {
             mapSqlParameterSource.addValue("offset", 0);
             mapSqlParameterSource.addValue("size", Integer.MAX_VALUE);
 
-            List<Pessoa> lsPessoaCount = namedParameterJdbcTemplate.query(env.getProperty(query), mapSqlParameterSource,
-                    BeanPropertyRowMapper.newInstance(Pessoa.class));
+            List<PessoaDto> lsPessoaCount = namedParameterJdbcTemplate.query(env.getProperty(query), mapSqlParameterSource,
+                    BeanPropertyRowMapper.newInstance(PessoaDto.class));
 
             mapSqlParameterSource.addValue("offset", pageable.getOffset());
             mapSqlParameterSource.addValue("size", pageable.getPageSize());
 
-            List<Pessoa> lsPessoa = namedParameterJdbcTemplate.query(env.getProperty(query), mapSqlParameterSource,
-                    BeanPropertyRowMapper.newInstance(Pessoa.class));
+            List<PessoaDto> lsPessoa = namedParameterJdbcTemplate.query(env.getProperty(query), mapSqlParameterSource,
+                    BeanPropertyRowMapper.newInstance(PessoaDto.class));
             return new PageImpl<>(lsPessoa, pageable, lsPessoaCount.size());
     }
 }

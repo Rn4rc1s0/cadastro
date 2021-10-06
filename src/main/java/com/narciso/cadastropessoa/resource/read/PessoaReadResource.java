@@ -63,7 +63,7 @@ public class PessoaReadResource implements CadastroResource {
     }
 
     private ResponseEntity<CadastroResponse<Page<PessoaDto>>> getResponseEntity(Pageable pageable, String queryProperty, String filtro) {
-        Page<Pessoa> lsPessoa = pessoaService.listar(queryProperty, filtro, pageable);
-        return retornarSucesso(Utils.<PessoaDto, Pessoa>converter(lsPessoa, PessoaDto::new));
+        Page<PessoaDto> lsPessoa = pessoaService.listar(queryProperty, filtro, pageable);
+        return retornarSucesso(lsPessoa);
     }
 }
